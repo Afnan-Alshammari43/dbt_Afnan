@@ -1,0 +1,39 @@
+version: 2
+sources:
+  - name: raw
+    database: extreme-battery-414414
+    schema: gz_raw_data
+    description: greenweez raw data source
+    tables:
+      - name: sales
+        identifier: raw_gz_sales
+        description: greenweez raw of sales
+        columns:
+          - name: date_date
+          - name: orders_id
+          - name: products_id
+          - name: revenue
+          - name: quantity
+      - name: product
+        identifier: raw_gz_product
+        description: greenweez raw of product
+        columns:
+          - name: products_id
+            description: primary key of product table 
+            tests:
+              - unique 
+              - not_null
+          - name: purchase_price
+      - name: ship
+        identifier: raw_gz_ship
+        description: greenweez raw of ship
+        columns:
+          - name: orders_id
+            description: primary key of ship table 
+            tests:
+              - unique 
+              - not_null
+          - name: shipping_fee
+          - name: logCost
+          - name: ship_cost
+          
